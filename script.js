@@ -12,10 +12,15 @@ document.body.appendChild( renderer.domElement );
 camera.position.z = 5;
 
 // ------ Geometry ------
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const windShieldGeo = new THREE.CapsuleGeometry(1, 1, 4, 8);
+const windShieldMat = new THREE.MeshBasicMaterial({
+    color: 0x6e9349
+});
+const windShield = new THREE.Mesh(windShieldGeo, windShieldMat);
+
+
+
+scene.add(windShield);
 
 
 
