@@ -12,15 +12,15 @@ document.body.appendChild( renderer.domElement );
 camera.position.z = 5;
 
 // ------ Geometry ------
-const windShieldGeo = new THREE.CapsuleGeometry(1, 1, 4, 8);
-const windShieldMat = new THREE.MeshBasicMaterial({
+const windshieldGeo = new THREE.CapsuleGeometry(1, 1, 4, 8);
+const windshieldMat = new THREE.MeshBasicMaterial({
     color: 0x6e9349
 });
-const windShield = new THREE.Mesh(windShieldGeo, windShieldMat);
+const windshield = new THREE.Mesh(windshieldGeo, windshieldMat);
 
 
 
-scene.add(windShield);
+scene.add(windshield);
 
 
 
