@@ -16,7 +16,8 @@ camera.position.z = 8;
 
 // ------ Lights ------
 const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
-directionalLight.position.x += 3.5;
+directionalLight.position.x += 10;
+directionalLight.position.y += 10;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 
@@ -72,7 +73,7 @@ const superiourPlateMat = new THREE.MeshPhysicalMaterial({
 });
 const superiourPlate = new THREE.Mesh(superiourPlateGeo, superiourPlateMat);
 superiourPlate.rotation.x = 4.7;
-superiourPlate.position.y -= 0.8;
+superiourPlate.position.y -= 1;
 // -- Middle Plate --
 const middlePlateGeo = new THREE.TorusGeometry(1.2, 0.3, 3, 80);
 const middlePlateMat = new THREE.MeshPhysicalMaterial({
@@ -82,7 +83,7 @@ const middlePlateMat = new THREE.MeshPhysicalMaterial({
 });
 const middlePlate = new THREE.Mesh(middlePlateGeo, middlePlateMat);
 middlePlate.rotation.x = 4.7;
-middlePlate.position.y -= 1.5;
+middlePlate.position.y -= 2;
 // -- inferiour Plate --
 const inferiourPlateGeo = new THREE.TorusGeometry(1, 0.1, 3, 80);
 const inferiourPlateMat = new THREE.MeshPhysicalMaterial({
@@ -92,7 +93,7 @@ const inferiourPlateMat = new THREE.MeshPhysicalMaterial({
 });
 const inferiourPlate = new THREE.Mesh(inferiourPlateGeo, inferiourPlateMat);
 inferiourPlate.rotation.x = 4.7;
-inferiourPlate.position.y -= 2;
+inferiourPlate.position.y -= 2.5;
 
 
 // Objects added to the scene
