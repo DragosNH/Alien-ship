@@ -43,8 +43,10 @@ const innerWindshield = new THREE.Mesh(innerWindshieldGeo, innerWindshieldMat);
 // --- Plates ---
 // -- Superiour plate --
 const superiourPlateGeo = new THREE.TorusGeometry(2, 0.7, 3, 80);
-const superiourPlateMat = new THREE.MeshBasicMaterial({
-    color: 0xb9bbbe
+const superiourPlateMat = new THREE.MeshPhysicalMaterial({
+    color: 0xb9bbbe,
+    roughness: 0.2,
+    metalness: 1
 });
 const superiourPlate = new THREE.Mesh(superiourPlateGeo, superiourPlateMat);
 superiourPlate.rotation.x = 4.7;
