@@ -27,7 +27,9 @@ scene.add(ambientLight);
 const windshieldGeo = new THREE.CapsuleGeometry(1.5, 1, 32, 10);
 const windshieldMat = new THREE.MeshPhysicalMaterial({
     color: 0x6e9349,
-    opacity: 0.8
+    opacity: 0.8,
+    roughness: 0,
+    transparent: true
 });
 const windshield = new THREE.Mesh(windshieldGeo, windshieldMat);
 // -- inner windshield --
