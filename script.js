@@ -11,12 +11,21 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 
-camera.position.z = 5;
+camera.position.z = 8;
+
+// ------ Lights ------
+const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
+directionalLight.position.x += 3.5;
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+
+scene.add(directionalLight);
+scene.add(ambientLight);
 
 // ------ Geometry ------
 // --- Windshield ---
 const windshieldGeo = new THREE.CapsuleGeometry(1.5, 1, 32, 10);
-const windshieldMat = new THREE.MeshBasicMaterial({
+const windshieldMat = new THREE.MeshPhysicalMaterial({
     color: 0x6e9349,
     opacity: 0.8
 });
