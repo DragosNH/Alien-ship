@@ -34,8 +34,10 @@ const windshieldMat = new THREE.MeshPhysicalMaterial({
 const windshield = new THREE.Mesh(windshieldGeo, windshieldMat);
 // -- inner windshield --
 const innerWindshieldGeo = new THREE.CapsuleGeometry(1.2, 1, 32, 10);
-const innerWindshieldMat = new THREE.MeshBasicMaterial({
-    color: 0x587040
+const innerWindshieldMat = new THREE.MeshPhysicalMaterial({
+    color: 0x587040,
+    roughness: 0,
+    metalness: 1,
 });
 const innerWindshield = new THREE.Mesh(innerWindshieldGeo, innerWindshieldMat);
 // --- Plates ---
