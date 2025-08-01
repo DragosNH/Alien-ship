@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 
 // ------ Scene and camera ------
 const scene = new THREE.Scene();
@@ -21,6 +22,27 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 
 scene.add(directionalLight);
 scene.add(ambientLight);
+
+
+
+const loader = new EXRLoader();
+loader.load('textures/puresky.exr', function (texture) {
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
+
+    const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+
+    scene.environment = envMap;
+
+    // Display backgorund image
+    scene.background = envMap;
+
+    texture.dispose();
+    pmremGenerator.dispose();
+
+    render();
+});
+
 
 // ------ Geometry ------
 // --- Windshield ---
