@@ -53,8 +53,10 @@ superiourPlate.rotation.x = 4.7;
 superiourPlate.position.y -= 0.8;
 // -- Middle Plate --
 const middlePlateGeo = new THREE.TorusGeometry(1.2, 0.3, 3, 80);
-const middlePlateMat = new THREE.MeshBasicMaterial({
-    color: 0x939599
+const middlePlateMat = new THREE.MeshPhysicalMaterial({
+    color: 0x939599,
+    roughness: 0.2,
+    metalness: 1
 });
 const middlePlate = new THREE.Mesh(middlePlateGeo, middlePlateMat);
 middlePlate.rotation.x = 4.7;
