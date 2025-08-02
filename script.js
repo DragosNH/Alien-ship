@@ -36,7 +36,7 @@ loader.load('textures/puresky.exr', function (texture) {
     scene.environment = envMap;
 
     // Display backgorund image
-    scene.background = envMap;
+    // scene.background = envMap;
 
     texture.dispose();
     pmremGenerator.dispose();
@@ -95,6 +95,23 @@ const inferiourPlate = new THREE.Mesh(inferiourPlateGeo, inferiourPlateMat);
 inferiourPlate.rotation.x = 4.7;
 inferiourPlate.position.y -= 2.5;
 
+// ------ Decoraitions to the ship ------
+const lightbulbGeo = new THREE.SphereGeometry(0.2, 32, 16);
+const lightbulbMat = new THREE.MeshBasicMaterial({
+    color: 0x0ff00f
+});
+// ------ Lightbulb back ------
+// --- Below ---
+const lightbulbBelowOne = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbBelowOne.position.z += 2;
+lightbulbBelowOne.position.y -= 1.3;
+// --- Above ---
+const lightbulbAboveOne = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbAboveOne.position.z += 2;
+lightbulbAboveOne.position.y -= 0.7;
+
+scene.add(lightbulbBelowOne)
+scene.add(lightbulbAboveOne)
 
 // ------ Groups ------
 const spaceship = new THREE.Group();
