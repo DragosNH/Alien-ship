@@ -118,13 +118,34 @@ lightbulbBelowTwo.position.y -= 1.3;
 const lightbulbAboveTwo = new THREE.Mesh(lightbulbGeo, lightbulbMat);
 lightbulbAboveTwo.position.z -= 2;
 lightbulbAboveTwo.position.y -= 0.7;
-
+// ------ Lighbulb Left ------
+// --- Below ---
+const lightbulbBelowThree = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbBelowThree.position.x -= 2;
+lightbulbBelowThree.position.y -= 1.3;
+// --- Above ---
+const lightbulbAboveThree = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbAboveThree.position.x -= 2;
+lightbulbAboveThree.position.y -= 0.7;
+// ------ Lighbulb Right ------
+// --- Below ---
+const lightbulbBelowFour = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbBelowFour.position.x += 2;
+lightbulbBelowFour.position.y -= 1.3;
+// --- Above ---
+const lightbulbAboveFour = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbAboveFour.position.x += 2;
+lightbulbAboveFour.position.y -= 0.7;
 
 
 scene.add(lightbulbBelowOne)
 scene.add(lightbulbAboveOne)
 scene.add(lightbulbBelowTwo)
 scene.add(lightbulbAboveTwo)
+scene.add(lightbulbBelowThree)
+scene.add(lightbulbAboveThree)
+scene.add(lightbulbBelowFour)
+scene.add(lightbulbAboveFour)
 
 // ------ Groups ------
 const spaceship = new THREE.Group();
