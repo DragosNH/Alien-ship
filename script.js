@@ -97,8 +97,11 @@ inferiourPlate.position.y -= 2.5;
 
 // ------ Decoraitions to the ship ------
 const lightbulbGeo = new THREE.SphereGeometry(0.2, 32, 16);
-const lightbulbMat = new THREE.MeshBasicMaterial({
-    color: 0x0ff00f
+const lightbulbMat = new THREE.MeshPhysicalMaterial({
+    color: 0x0ff00f,
+    opacity: 0.8,
+    roughness: 0,
+    transparent: true
 });
 // ------ Lightbulb back ------
 // --- Below ---
