@@ -96,12 +96,17 @@ inferiourPlate.rotation.x = 4.7;
 inferiourPlate.position.y -= 2.5;
 
 
+// ------ Groups ------
+const spaceship = new THREE.Group();
+spaceship.add(windshield);
+spaceship.add(innerWindshield);
+spaceship.add(superiourPlate);
+spaceship.add(middlePlate);
+spaceship.add(inferiourPlate);
+
+
 // Objects added to the scene
-scene.add(windshield);
-scene.add(innerWindshield);
-scene.add(superiourPlate);
-scene.add(middlePlate);
-scene.add(inferiourPlate);
+scene.add(spaceship);
 
 
 
