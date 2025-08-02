@@ -109,9 +109,22 @@ lightbulbBelowOne.position.y -= 1.3;
 const lightbulbAboveOne = new THREE.Mesh(lightbulbGeo, lightbulbMat);
 lightbulbAboveOne.position.z += 2;
 lightbulbAboveOne.position.y -= 0.7;
+// ------ Lighbulb Front ------
+// --- Below ---
+const lightbulbBelowTwo = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbBelowTwo.position.z -= 2;
+lightbulbBelowTwo.position.y -= 1.3;
+// --- Above ---
+const lightbulbAboveTwo = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbAboveTwo.position.z -= 2;
+lightbulbAboveTwo.position.y -= 0.7;
+
+
 
 scene.add(lightbulbBelowOne)
 scene.add(lightbulbAboveOne)
+scene.add(lightbulbBelowTwo)
+scene.add(lightbulbAboveTwo)
 
 // ------ Groups ------
 const spaceship = new THREE.Group();
