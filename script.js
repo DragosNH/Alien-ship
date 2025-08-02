@@ -21,8 +21,16 @@ directionalLight.position.y += 10;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 
+const pointLightOneBottom = new THREE.PointLight(0x0ff00f, 50, 20, 60);
+pointLightOneBottom.position.z += 2;
+pointLightOneBottom.position.y -= 1.3;
+const pointLightOneTop = new THREE.PointLight(0x0ff00f, 50, 20, 60);
+pointLightOneTop.position.z += 2;
+pointLightOneTop.position.y -= 0.7;
+
 scene.add(directionalLight);
 scene.add(ambientLight);
+scene.add(pointLightOneBottom);
 
 
 
@@ -141,22 +149,25 @@ lightbulbAboveFour.position.x += 2;
 lightbulbAboveFour.position.y -= 0.7;
 
 
-scene.add(lightbulbBelowOne)
-scene.add(lightbulbAboveOne)
-scene.add(lightbulbBelowTwo)
-scene.add(lightbulbAboveTwo)
-scene.add(lightbulbBelowThree)
-scene.add(lightbulbAboveThree)
-scene.add(lightbulbBelowFour)
-scene.add(lightbulbAboveFour)
-
 // ------ Groups ------
+// --- Lightbulbs ---
+const lightbulbs = new THREE.Group();
+lightbulbs.add(lightbulbBelowOne)
+lightbulbs.add(lightbulbAboveOne)
+lightbulbs.add(lightbulbBelowTwo)
+lightbulbs.add(lightbulbAboveTwo)
+lightbulbs.add(lightbulbBelowThree)
+lightbulbs.add(lightbulbAboveThree)
+lightbulbs.add(lightbulbBelowFour)
+lightbulbs.add(lightbulbAboveFour)
+// --- Spaceship ---
 const spaceship = new THREE.Group();
 spaceship.add(windshield);
 spaceship.add(innerWindshield);
 spaceship.add(superiourPlate);
 spaceship.add(middlePlate);
 spaceship.add(inferiourPlate);
+spaceship.add(lightbulbs);
 
 
 // Objects added to the scene
