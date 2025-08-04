@@ -21,16 +21,28 @@ directionalLight.position.y += 10;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 
+// ------ Lightbulbs lights ------
 const pointLightOneBottom = new THREE.PointLight(0x0ff00f, 50, 20, 60);
 pointLightOneBottom.position.z += 2;
 pointLightOneBottom.position.y -= 1.3;
-const pointLightOneTop = new THREE.PointLight(0x0ff00f, 50, 20, 60);
+const pointLightOneTop = new THREE.PointLight(0x0ff00f, 10, 50, 60);
 pointLightOneTop.position.z += 2;
 pointLightOneTop.position.y -= 0.6;
+
+/*
+const lightbulbBelowTwo = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbBelowTwo.position.z -= 2;
+lightbulbBelowTwo.position.y -= 1.3;
+// --- Above ---
+const lightbulbAboveTwo = new THREE.Mesh(lightbulbGeo, lightbulbMat);
+lightbulbAboveTwo.position.z -= 2;
+lightbulbAboveTwo.position.y -= 0.7;
+*/ 
 
 scene.add(directionalLight);
 scene.add(ambientLight);
 scene.add(pointLightOneBottom);
+scene.add(pointLightOneTop);
 
 
 
