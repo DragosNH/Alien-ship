@@ -107,8 +107,6 @@ inferiourPlate.position.y -= 2.5;
 const lightbulbGeo = new THREE.SphereGeometry(0.2, 32, 16);
 const lightbulbMat = new THREE.MeshPhysicalMaterial({
     color: 0x0ff00f,
-    transparent: true,
-    opacity: 0.6,
     roughness: 0,
     emissive: 0x0ff00f,
     emissiveIntensity: 50
