@@ -26,7 +26,7 @@ pointLightOneBottom.position.z += 2;
 pointLightOneBottom.position.y -= 1.3;
 const pointLightOneTop = new THREE.PointLight(0x0ff00f, 50, 20, 60);
 pointLightOneTop.position.z += 2;
-pointLightOneTop.position.y -= 0.7;
+pointLightOneTop.position.y -= 0.6;
 
 scene.add(directionalLight);
 scene.add(ambientLight);
@@ -107,9 +107,9 @@ inferiourPlate.position.y -= 2.5;
 const lightbulbGeo = new THREE.SphereGeometry(0.2, 32, 16);
 const lightbulbMat = new THREE.MeshPhysicalMaterial({
     color: 0x0ff00f,
-    opacity: 0.8,
+    transparent: true,
+    opacity: 0.6,
     roughness: 0,
-    transparent: true
 });
 // ------ Lightbulb back ------
 // --- Below ---
