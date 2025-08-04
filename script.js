@@ -110,6 +110,8 @@ const lightbulbMat = new THREE.MeshPhysicalMaterial({
     transparent: true,
     opacity: 0.6,
     roughness: 0,
+    emissive: 0x0ff00f,
+    emissiveIntensity: 50
 });
 // ------ Lightbulb back ------
 // --- Below ---
