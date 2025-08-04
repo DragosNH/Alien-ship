@@ -54,14 +54,19 @@ pointLightFourTop.position.y -= 0.7;
 
 scene.add(directionalLight);
 scene.add(ambientLight);
-scene.add(pointLightOneBottom);
-scene.add(pointLightOneTop);
-scene.add(pointLightTwoBottom);
-scene.add(pointLightTwoTop);
-scene.add(pointLightThreeBottom);
-scene.add(pointLightThreeTop);
-scene.add(pointLightFourBottom);
-scene.add(pointLightFourTop);
+
+// ------ Lightbulb glow group ------
+const lightbulbsGlow = new THREE.Group();
+lightbulbsGlow.add(pointLightOneBottom);
+lightbulbsGlow.add(pointLightOneTop);
+lightbulbsGlow.add(pointLightTwoBottom);
+lightbulbsGlow.add(pointLightTwoTop);
+lightbulbsGlow.add(pointLightThreeBottom);
+lightbulbsGlow.add(pointLightThreeTop);
+lightbulbsGlow.add(pointLightFourBottom);
+lightbulbsGlow.add(pointLightFourTop);
+
+scene.add(lightbulbsGlow);
 
 
 
