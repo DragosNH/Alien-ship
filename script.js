@@ -43,17 +43,14 @@ pointLightThreeBottom.position.y -= 1.3;
 const pointLightThreeTop = new THREE.PointLight(0x0ff00f, 10, 50, 60);
 pointLightThreeTop.position.x -= 2;
 pointLightThreeTop.position.y -= 0.7;
+// --- Right ---
+const pointLightFourBottom = new THREE.PointLight(0x0ff00f, 50, 20, 60);
+pointLightFourBottom.position.x += 2;
+pointLightFourBottom.position.y -= 1.3;
+const pointLightFourTop = new THREE.PointLight(0x0ff00f, 10, 50, 60);
+pointLightFourTop.position.x += 2;
+pointLightFourTop.position.y -= 0.7;
 
-/*
-// --- Below ---
-const lightbulbBelowThree = new THREE.Mesh(lightbulbGeo, lightbulbMat);
-lightbulbBelowThree.position.x -= 2;
-lightbulbBelowThree.position.y -= 1.3;
-// --- Above ---
-const lightbulbAboveThree = new THREE.Mesh(lightbulbGeo, lightbulbMat);
-lightbulbAboveThree.position.x -= 2;
-lightbulbAboveThree.position.y -= 0.7;
-*/ 
 
 scene.add(directionalLight);
 scene.add(ambientLight);
@@ -63,6 +60,8 @@ scene.add(pointLightTwoBottom);
 scene.add(pointLightTwoTop);
 scene.add(pointLightThreeBottom);
 scene.add(pointLightThreeTop);
+scene.add(pointLightFourBottom);
+scene.add(pointLightFourTop);
 
 
 
