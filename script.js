@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
+import { Group } from 'three/examples/jsm/libs/tween.module.js';
 
 // ------ Scene and camera ------
 const scene = new THREE.Scene();
@@ -226,7 +227,7 @@ const groundMat = new THREE.MeshPhysicalMaterial({
     side: THREE.DoubleSide,
     color: 0x333333,
 });
-const ground = new THREE.Mesh(groundGeo,groundMat);
+const ground = new THREE.Mesh(groundGeo, groundMat);
 ground.rotation.x += 4.7;
 ground.position.y -= 8;
 
@@ -234,26 +235,39 @@ ground.position.y -= 8;
 scene.add(ground);
 
 // ------ Trees ------
-const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
-const treeTrunkMat = new THREE.MeshPhysicalMaterial({
-    color: 0x574436,
-    castShadow: true,
-    receiveShadow: true
-});
-const treeTrunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
+let trees = [];
 
-const leafsGeo = new THREE.SphereGeometry(1, 16, 16);
-const leafsMat = new THREE.MeshPhysicalMaterial({
-    color: 0x276235,
-    castShadow: true,
-    receiveShadow: true
-});
-const leafs = new THREE.Mesh(leafsGeo, leafsMat);
-leafs.position.y += 2;
+for (let i = 0; i < 1000; i++) {
+    const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
+    const treeTrunkMat = new THREE.MeshPhysicalMaterial({
+        color: 0x574436,
+        castShadow: true,
+        receiveShadow: true
+    });
+    const treeTrunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
 
-scene.add(treeTrunk);
-scene.add(leafs);
+    const leafsGeo = new THREE.SphereGeometry(1, 16, 16);
+    const leafsMat = new THREE.MeshPhysicalMaterial({
+        color: 0x276235,
+        castShadow: true,
+        receiveShadow: true
+    });
+    const leafs = new THREE.Mesh(leafsGeo, leafsMat);
+    leafs.position.y += 2;
 
+    const tree = new THREE.Group();
+    tree.add(treeTrunk);
+    tree.add(leafs);
+
+    tree.position.set(
+        (Math.random() - 0.5) * 1000, 
+        -7.5,
+        (Math.random() - 0.5) * 1000
+    )
+
+    scene.add(tree);
+    trees.push(tree);
+}
 
 
 
