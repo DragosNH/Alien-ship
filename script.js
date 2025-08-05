@@ -18,6 +18,7 @@ camera.position.z = 8;
 const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
 directionalLight.position.x += 10;
 directionalLight.position.y += 10;
+directionalLight.castShadow = true;
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 
@@ -236,10 +237,22 @@ scene.add(ground);
 const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
 const treeTrunkMat = new THREE.MeshPhysicalMaterial({
     color: 0x574436,
+    castShadow: true,
+    receiveShadow: true
 });
 const treeTrunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
 
+const leafsGeo = new THREE.SphereGeometry(1, 16, 16);
+const leafsMat = new THREE.MeshPhysicalMaterial({
+    color: 0x276235,
+    castShadow: true,
+    receiveShadow: true
+});
+const leafs = new THREE.Mesh(leafsGeo, leafsMat);
+leafs.position.y += 2;
+
 scene.add(treeTrunk);
+scene.add(leafs);
 
 
 
