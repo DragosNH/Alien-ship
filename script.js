@@ -211,6 +211,21 @@ spaceship.add(lightbulbs);
 scene.add(spaceship);
 
 
+// ------ Terrain ------
+
+const groundGeo = new THREE.PlaneGeometry(1000, 1000);
+const groundMat = new THREE.MeshBasicMaterial({
+    color: 0x003300,
+    side: THREE.DoubleSide
+});
+const ground = new THREE.Mesh(groundGeo,groundMat);
+ground.rotation.x += 4.7;
+ground.position.y -= 8;
+
+scene.add(ground);
+
+
+
 
 // ------ Responsive page ------
 window.addEventListener('resize', () => {
