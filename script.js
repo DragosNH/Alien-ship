@@ -226,9 +226,11 @@ const groundMat = new THREE.MeshPhysicalMaterial({
     map: forestGroundTexture,
     side: THREE.DoubleSide,
     color: 0x333333,
+    castShadow: true,
+    receiveShadow: true
 });
 const ground = new THREE.Mesh(groundGeo, groundMat);
-ground.rotation.x += 4.7;
+ground.rotation.x += -Math.PI / 2;
 ground.position.y -= 8;
 
 
