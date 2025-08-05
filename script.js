@@ -80,7 +80,7 @@ loader.load('textures/puresky.exr', function (texture) {
     scene.environment = envMap;
 
     // Display backgorund image
-    // scene.background = envMap;
+    scene.background = envMap;
 
     texture.dispose();
     pmremGenerator.dispose();
@@ -114,7 +114,7 @@ const superiourPlateGeo = new THREE.TorusGeometry(2, 0.7, 3, 80);
 const superiourPlateMat = new THREE.MeshPhysicalMaterial({
     color: 0xb9bbbe,
     roughness: 0.2,
-    metalness: 1
+    metalness: 1,
 });
 const superiourPlate = new THREE.Mesh(superiourPlateGeo, superiourPlateMat);
 superiourPlate.rotation.x = 4.7;
