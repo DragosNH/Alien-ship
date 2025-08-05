@@ -210,7 +210,7 @@ spaceship.add(lightbulbs);
 
 
 // Spaceship added to the scene
-scene.add(spaceship);
+// scene.add(spaceship);
 
 
 // ------ Terrain ------
