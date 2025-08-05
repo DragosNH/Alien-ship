@@ -208,7 +208,7 @@ spaceship.add(lightbulbs);
 
 
 // Objects added to the scene
-scene.add(spaceship);
+// scene.add(spaceship);
 
 
 // ------ Terrain ------
@@ -220,7 +220,7 @@ forestGroundTexture.repeat.set(50, 50);
 forestGroundTexture.encoding = THREE.sRGBEncoding;
 
 const groundGeo = new THREE.PlaneGeometry(1000, 1000);
-const groundMat = new THREE.MeshLambertMaterial({
+const groundMat = new THREE.MeshPhysicalMaterial({
     map: forestGroundTexture,
     side: THREE.DoubleSide,
     color: 0x333333,
@@ -231,6 +231,15 @@ ground.position.y -= 8;
 
 
 scene.add(ground);
+
+// ------ Trees ------
+const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
+const treeTrunkMat = new THREE.MeshPhysicalMaterial({
+    color: 0x574436,
+});
+const treeTrunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
+
+scene.add(treeTrunk);
 
 
 
