@@ -209,8 +209,8 @@ spaceship.add(inferiourPlate);
 spaceship.add(lightbulbs);
 
 
-// Objects added to the scene
-// scene.add(spaceship);
+// Spaceship added to the scene
+scene.add(spaceship);
 
 
 // ------ Terrain ------
