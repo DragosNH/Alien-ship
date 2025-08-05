@@ -213,14 +213,22 @@ scene.add(spaceship);
 
 // ------ Terrain ------
 
+const forestGroundTexture = new THREE.TextureLoader().load("textures/ground.jpg");
+forestGroundTexture.wrapS = THREE.RepeatWrapping;
+forestGroundTexture.wrapT = THREE.RepeatWrapping;
+forestGroundTexture.repeat.set(50, 50);
+forestGroundTexture.encoding = THREE.sRGBEncoding;
+
 const groundGeo = new THREE.PlaneGeometry(1000, 1000);
-const groundMat = new THREE.MeshBasicMaterial({
-    color: 0x003300,
-    side: THREE.DoubleSide
+const groundMat = new THREE.MeshLambertMaterial({
+    map: forestGroundTexture,
+    side: THREE.DoubleSide,
+    color: 0x333333,
 });
 const ground = new THREE.Mesh(groundGeo,groundMat);
 ground.rotation.x += 4.7;
 ground.position.y -= 8;
+
 
 scene.add(ground);
 
