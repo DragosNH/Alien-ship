@@ -236,8 +236,8 @@ ground.position.y -= 8;
 
 scene.add(ground);
 
-// ------ Trees ------
-let trees = [];
+// ------ Vegetation ------
+let vegetation = [];
 
 for (let i = 0; i < 1000; i++) {
     const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
@@ -268,7 +268,7 @@ for (let i = 0; i < 1000; i++) {
     )
 
     scene.add(tree);
-    trees.push(tree);
+    vegetation.push(tree);
 }
 
 
