@@ -238,6 +238,7 @@ scene.add(ground);
 let vegetation = [];
 
 for (let i = 0; i < 2000; i++) {
+    // ------ Tree ------
     const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
     const treeTrunkMat = new THREE.MeshPhysicalMaterial({
         color: 0x574436,
@@ -250,7 +251,7 @@ for (let i = 0; i < 2000; i++) {
     });
     const leafs = new THREE.Mesh(leafsGeo, leafsMat);
     leafs.position.y += 2;
-
+    // ------ Bush ------
     const leftBush = new THREE.Mesh(leafsGeo, leafsMat);
     leftBush.position.x -= 1;
     const rightBush = new THREE.Mesh(leafsGeo, leafsMat);
@@ -259,10 +260,12 @@ for (let i = 0; i < 2000; i++) {
     const topBush = new THREE.Mesh(leafsGeo, leafsMat);
     topBush.position.y += 0.5;
 
+    // ------ Groups ------
+    // --- Tree ---
     const tree = new THREE.Group();
     tree.add(treeTrunk);
     tree.add(leafs);
-
+    // --- Bush ---
     const bush = new THREE.Group();
     bush.add(leftBush);
     bush.add(rightBush);
