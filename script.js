@@ -226,8 +226,6 @@ const groundMat = new THREE.MeshPhysicalMaterial({
     map: forestGroundTexture,
     side: THREE.DoubleSide,
     color: 0x333333,
-    // castShadow: true,
-    // receiveShadow: true
 });
 const ground = new THREE.Mesh(groundGeo, groundMat);
 ground.rotation.x += -Math.PI / 2;
@@ -243,16 +241,12 @@ for (let i = 0; i < 1000; i++) {
     const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
     const treeTrunkMat = new THREE.MeshPhysicalMaterial({
         color: 0x574436,
-        // castShadow: true,
-        // receiveShadow: true
     });
     const treeTrunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
 
     const leafsGeo = new THREE.SphereGeometry(1, 16, 16);
     const leafsMat = new THREE.MeshPhysicalMaterial({
         color: 0x276235,
-        // castShadow: true,
-        // receiveShadow: true
     });
     const leafs = new THREE.Mesh(leafsGeo, leafsMat);
     leafs.position.y += 2;
