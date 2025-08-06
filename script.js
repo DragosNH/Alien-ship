@@ -287,6 +287,7 @@ for (let i = 0; i < 1000; i++) {
         (Math.random() - 0.5) * 1000
     )
 
+    bush.rotation.y += (Math.random() + 0) * 2;
 
     scene.add(tree);
     scene.add(bush);
