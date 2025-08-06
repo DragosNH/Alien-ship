@@ -237,7 +237,7 @@ scene.add(ground);
 // ------ Vegetation ------
 let vegetation = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 2000; i++) {
     const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
     const treeTrunkMat = new THREE.MeshPhysicalMaterial({
         color: 0x574436,
