@@ -277,7 +277,7 @@ for (let i = 0; i < 2000; i++) {
 
     bush.position.set(
         (Math.random() - 0.5) * 1000, 
-        -7.5,
+        -7.7,
         (Math.random() - 0.5) * 1000
     )
 
