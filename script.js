@@ -226,8 +226,8 @@ const groundMat = new THREE.MeshPhysicalMaterial({
     map: forestGroundTexture,
     side: THREE.DoubleSide,
     color: 0x333333,
-    castShadow: true,
-    receiveShadow: true
+    // castShadow: true,
+    // receiveShadow: true
 });
 const ground = new THREE.Mesh(groundGeo, groundMat);
 ground.rotation.x += -Math.PI / 2;
@@ -243,32 +243,55 @@ for (let i = 0; i < 1000; i++) {
     const treeTrunkGeo = new THREE.CylinderGeometry(0.2, 0.3, 2.5, 16);
     const treeTrunkMat = new THREE.MeshPhysicalMaterial({
         color: 0x574436,
-        castShadow: true,
-        receiveShadow: true
+        // castShadow: true,
+        // receiveShadow: true
     });
     const treeTrunk = new THREE.Mesh(treeTrunkGeo, treeTrunkMat);
 
     const leafsGeo = new THREE.SphereGeometry(1, 16, 16);
     const leafsMat = new THREE.MeshPhysicalMaterial({
         color: 0x276235,
-        castShadow: true,
-        receiveShadow: true
+        // castShadow: true,
+        // receiveShadow: true
     });
     const leafs = new THREE.Mesh(leafsGeo, leafsMat);
     leafs.position.y += 2;
+
+    const leftBush = new THREE.Mesh(leafsGeo, leafsMat);
+    leftBush.position.x -= 1;
+    const rightBush = new THREE.Mesh(leafsGeo, leafsMat);
+    rightBush.position.x += 1;
+    const middleBush = new THREE.Mesh(leafsGeo, leafsMat);
+    const topBush = new THREE.Mesh(leafsGeo, leafsMat);
+    topBush.position.y += 0.5;
 
     const tree = new THREE.Group();
     tree.add(treeTrunk);
     tree.add(leafs);
 
+    const bush = new THREE.Group();
+    bush.add(leftBush);
+    bush.add(rightBush);
+    bush.add(middleBush);
+    bush.add(topBush);
+
     tree.position.set(
+        (Math.random() - 0.5) * 1000, 
+        -7.5,
+        (Math.random() - 0.5) * 1000
+    );
+
+    bush.position.set(
         (Math.random() - 0.5) * 1000, 
         -7.5,
         (Math.random() - 0.5) * 1000
     )
 
+
     scene.add(tree);
+    scene.add(bush);
     vegetation.push(tree);
+    vegetation.push(bush);
 }
 
 
@@ -286,6 +309,7 @@ window.addEventListener('resize', () => {
 
 // ------ Animate ------
 function animate() {
+
 
     controls.update();
     renderer.render(scene, camera);
