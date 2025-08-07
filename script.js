@@ -295,13 +295,23 @@ for (let i = 0; i < 2000; i++) {
 // ------ Animals ------
 
 // --- Sheep ---
-const sheepHeadGeo = new THREE.SphereGeometry(0.5, 32, 16);
-const sheepHeadMat = new THREE.MeshBasicMaterial({
+// Head
+const sheepHeadGeo = new THREE.SphereGeometry(0.3, 32, 16);
+const sheepMat = new THREE.MeshBasicMaterial({
     color: 0xa3a3a3
 });
-const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepHeadMat);
+const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepMat);
+// Muzzle
+const sheepMuzzleGeo = new THREE.CylinderGeometry(0.09, 0.05, 0.2, 16);
+const sheepMuzzle = new THREE.Mesh(sheepMuzzleGeo, sheepMat);
+sheepMuzzle.position.x -= 0.4;
+sheepMuzzle.rotation.x += Math.PI / 2;
+sheepMuzzle.rotation.z -= Math.PI / 2;
+
+
 
 scene.add(sheepHead);
+scene.add(sheepMuzzle);
 
 
 
