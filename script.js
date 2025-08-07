@@ -307,11 +307,18 @@ const sheepMuzzle = new THREE.Mesh(sheepMuzzleGeo, sheepMat);
 sheepMuzzle.position.x -= 0.4;
 sheepMuzzle.rotation.x += Math.PI / 2;
 sheepMuzzle.rotation.z -= Math.PI / 2;
-
+// Body 
+const sheepBodyGeo = new THREE.CapsuleGeometry(0.4, 0.4, 12, 36);
+const sheepBody = new THREE.Mesh(sheepBodyGeo, sheepMat);
+sheepBody.rotation.x += Math.PI / 2;
+sheepBody.rotation.z += Math.PI / 2;
+sheepBody.position.x += 0.3;
+sheepBody.position.y -= 0.5;
 
 
 scene.add(sheepHead);
 scene.add(sheepMuzzle);
+scene.add(sheepBody);
 
 
 
