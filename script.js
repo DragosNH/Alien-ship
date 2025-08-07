@@ -292,6 +292,17 @@ for (let i = 0; i < 2000; i++) {
     vegetation.push(bush);
 }
 
+// ------ Animals ------
+
+// --- Sheep ---
+const sheepHeadGeo = new THREE.SphereGeometry(0.5, 32, 16);
+const sheepHeadMat = new THREE.MeshBasicMaterial({
+    color: 0xa3a3a3
+});
+const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepHeadMat);
+
+scene.add(sheepHead);
+
 
 
 // ------ Responsive page ------
