@@ -297,7 +297,7 @@ for (let i = 0; i < 2000; i++) {
 // --- Sheep ---
 // Head
 const sheepHeadGeo = new THREE.SphereGeometry(0.3, 32, 16);
-const sheepMat = new THREE.MeshBasicMaterial({
+const sheepMat = new THREE.MeshPhysicalMaterial({
     color: 0xa3a3a3
 });
 const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepMat);
