@@ -294,60 +294,78 @@ for (let i = 0; i < 2000; i++) {
 
 // ------ Animals ------
 
-// --- Sheep ---
-// Head
-const sheepHeadGeo = new THREE.SphereGeometry(0.3, 32, 16);
-const sheepMat = new THREE.MeshPhysicalMaterial({
-    color: 0xa3a3a3
-});
-const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepMat);
-// Muzzle
-const sheepMuzzleGeo = new THREE.CylinderGeometry(0.09, 0.05, 0.2, 16);
-const sheepMuzzle = new THREE.Mesh(sheepMuzzleGeo, sheepMat);
-sheepMuzzle.position.x -= 0.4;
-sheepMuzzle.rotation.x += Math.PI / 2;
-sheepMuzzle.rotation.z -= Math.PI / 2;
-// Body 
-const sheepBodyGeo = new THREE.CapsuleGeometry(0.4, 0.4, 12, 36);
-const sheepBody = new THREE.Mesh(sheepBodyGeo, sheepMat);
-sheepBody.rotation.x += Math.PI / 2;
-sheepBody.rotation.z += Math.PI / 2;
-sheepBody.position.x += 0.3;
-sheepBody.position.y -= 0.5;
-// Legs
-// Front left leg
-const sheepLegsGeo = new THREE.CylinderGeometry(0.1, 0.08, 0.5, 16);
-const sheepFrontLeftLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
-sheepFrontLeftLeg.position.y -= 1;
-sheepFrontLeftLeg.position.z += 0.2;
-// Front right leg
-const sheepFrontRightLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
-sheepFrontRightLeg.position.y -= 1;
-sheepFrontRightLeg.position.z -= 0.2;
-// Back left leg
-const sheepBackLeftLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
-sheepBackLeftLeg.position.y -= 1;
-sheepBackLeftLeg.position.x += 0.6;
-sheepBackLeftLeg.position.z += 0.2;
-// Back right leg
-const sheepBackRightLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
-sheepBackRightLeg.position.y -= 1;
-sheepBackRightLeg.position.x += 0.6;
-sheepBackRightLeg.position.z -= 0.2;
-// tail
-const sheepTailGeo = new THREE.SphereGeometry(0.1, 32, 16);
-const sheepTail = new THREE.Mesh(sheepTailGeo, sheepMat);
-sheepTail.position.x += 0.8;
-sheepTail.position.y -= 0.2;
+let animals = []
 
-scene.add(sheepHead);
-scene.add(sheepMuzzle);
-scene.add(sheepBody);
-scene.add(sheepFrontLeftLeg);
-scene.add(sheepFrontRightLeg);
-scene.add(sheepBackLeftLeg);
-scene.add(sheepBackRightLeg);
-scene.add(sheepTail);
+
+for (let i = 0; i < 1500; i++) {
+
+    // --- Sheep ---
+    // Head
+    const sheepHeadGeo = new THREE.SphereGeometry(0.3, 32, 16);
+    const sheepMat = new THREE.MeshPhysicalMaterial({
+        color: 0xa3a3a3
+    });
+    const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepMat);
+    // Muzzle
+    const sheepMuzzleGeo = new THREE.CylinderGeometry(0.09, 0.05, 0.2, 16);
+    const sheepMuzzle = new THREE.Mesh(sheepMuzzleGeo, sheepMat);
+    sheepMuzzle.position.x -= 0.4;
+    sheepMuzzle.rotation.x += Math.PI / 2;
+    sheepMuzzle.rotation.z -= Math.PI / 2;
+    // Body 
+    const sheepBodyGeo = new THREE.CapsuleGeometry(0.4, 0.4, 12, 36);
+    const sheepBody = new THREE.Mesh(sheepBodyGeo, sheepMat);
+    sheepBody.rotation.x += Math.PI / 2;
+    sheepBody.rotation.z += Math.PI / 2;
+    sheepBody.position.x += 0.3;
+    sheepBody.position.y -= 0.5;
+    // Legs
+    // Front left leg
+    const sheepLegsGeo = new THREE.CylinderGeometry(0.1, 0.08, 0.5, 16);
+    const sheepFrontLeftLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+    sheepFrontLeftLeg.position.y -= 1;
+    sheepFrontLeftLeg.position.z += 0.2;
+    // Front right leg
+    const sheepFrontRightLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+    sheepFrontRightLeg.position.y -= 1;
+    sheepFrontRightLeg.position.z -= 0.2;
+    // Back left leg
+    const sheepBackLeftLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+    sheepBackLeftLeg.position.y -= 1;
+    sheepBackLeftLeg.position.x += 0.6;
+    sheepBackLeftLeg.position.z += 0.2;
+    // Back right leg
+    const sheepBackRightLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+    sheepBackRightLeg.position.y -= 1;
+    sheepBackRightLeg.position.x += 0.6;
+    sheepBackRightLeg.position.z -= 0.2;
+    // tail
+    const sheepTailGeo = new THREE.SphereGeometry(0.1, 32, 16);
+    const sheepTail = new THREE.Mesh(sheepTailGeo, sheepMat);
+    sheepTail.position.x += 0.8;
+    sheepTail.position.y -= 0.2;
+    
+    const sheep = new THREE.Group();
+    sheep.add(sheepHead);
+    sheep.add(sheepMuzzle);
+    sheep.add(sheepBody);
+    sheep.add(sheepFrontLeftLeg);
+    sheep.add(sheepFrontRightLeg);
+    sheep.add(sheepBackLeftLeg);
+    sheep.add(sheepBackRightLeg);
+    sheep.add(sheepTail);
+
+    sheep.position.set(
+        (Math.random() - 0.5) * 1000, 
+        -6.9,
+        (Math.random() - 0.5) * 1000
+    );
+
+    sheep.rotation.y += (Math.random() + 0) * 2;
+    
+    scene.add(sheep);
+    animals.push(sheep);
+}
 
 
 
