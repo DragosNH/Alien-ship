@@ -314,11 +314,25 @@ sheepBody.rotation.x += Math.PI / 2;
 sheepBody.rotation.z += Math.PI / 2;
 sheepBody.position.x += 0.3;
 sheepBody.position.y -= 0.5;
+// Legs
+// Front left leg
+const sheepLegsGeo = new THREE.CylinderGeometry(0.1, 0.08, 0.5, 16);
+const sheepFrontLeftLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+sheepFrontLeftLeg.position.y -= 1;
+sheepFrontLeftLeg.position.z += 0.2;
+// Front right leg
+const sheepFrontRightLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+sheepFrontRightLeg.position.y -= 1;
+sheepFrontRightLeg.position.z -= 0.2;
+
 
 
 scene.add(sheepHead);
 scene.add(sheepMuzzle);
 scene.add(sheepBody);
+scene.add(sheepFrontLeftLeg);
+scene.add(sheepFrontRightLeg);
+
 
 
 
