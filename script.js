@@ -329,7 +329,11 @@ const sheepBackLeftLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
 sheepBackLeftLeg.position.y -= 1;
 sheepBackLeftLeg.position.x += 0.6;
 sheepBackLeftLeg.position.z += 0.2;
-
+// Back right leg
+const sheepBackRightLeg = new THREE.Mesh(sheepLegsGeo, sheepMat);
+sheepBackRightLeg.position.y -= 1;
+sheepBackRightLeg.position.x += 0.6;
+sheepBackRightLeg.position.z -= 0.2;
 
 
 scene.add(sheepHead);
@@ -338,6 +342,7 @@ scene.add(sheepBody);
 scene.add(sheepFrontLeftLeg);
 scene.add(sheepFrontRightLeg);
 scene.add(sheepBackLeftLeg);
+scene.add(sheepBackRightLeg);
 
 
 
