@@ -273,13 +273,13 @@ for (let i = 0; i < 2000; i++) {
     bush.add(topBush);
 
     tree.position.set(
-        (Math.random() - 0.5) * 1000, 
+        (Math.random() - 0.5) * 1000,
         -7.5,
         (Math.random() - 0.5) * 1000
     );
 
     bush.position.set(
-        (Math.random() - 0.5) * 1000, 
+        (Math.random() - 0.5) * 1000,
         -7.7,
         (Math.random() - 0.5) * 1000
     )
@@ -305,7 +305,7 @@ for (let i = 0; i < 1500; i++) {
     const sheepMat = new THREE.MeshPhysicalMaterial({
         color: 0xa3a3a3
     });
-    const sheepHead = new THREE.Mesh(sheepHeadGeo,sheepMat);
+    const sheepHead = new THREE.Mesh(sheepHeadGeo, sheepMat);
     // Muzzle
     const sheepMuzzleGeo = new THREE.CylinderGeometry(0.09, 0.05, 0.2, 16);
     const sheepMuzzle = new THREE.Mesh(sheepMuzzleGeo, sheepMat);
@@ -344,7 +344,7 @@ for (let i = 0; i < 1500; i++) {
     const sheepTail = new THREE.Mesh(sheepTailGeo, sheepMat);
     sheepTail.position.x += 0.8;
     sheepTail.position.y -= 0.2;
-    
+
     const sheep = new THREE.Group();
     sheep.add(sheepHead);
     sheep.add(sheepMuzzle);
@@ -356,7 +356,7 @@ for (let i = 0; i < 1500; i++) {
     sheep.add(sheepTail);
 
     sheep.position.set(
-        (Math.random() - 0.5) * 1000, 
+        (Math.random() - 0.5) * 1000,
         -6.9,
         (Math.random() - 0.5) * 1000
     );
@@ -364,11 +364,11 @@ for (let i = 0; i < 1500; i++) {
     sheep.rotation.y += (Math.random() + 0) * 2;
 
     sheep.userData.velocity = new THREE.Vector3(
-    (Math.random() - 0.5) * 0.05, 
-    0,                            
-    (Math.random() - 0.5) * 0.05  
-);
-    
+        (Math.random() - 0.5) * 0.05,
+        0,
+        (Math.random() - 0.5) * 0.05
+    );
+
     scene.add(sheep);
     animals.push(sheep);
 }
@@ -391,19 +391,29 @@ window.addEventListener('resize', () => {
 function animate() {
 
     animals.forEach(animal => {
-    animal.position.add(animal.userData.velocity);
+        // Movement
+        animal.position.add(animal.userData.velocity);
 
-    // Optional: make them slowly change direction
-    if (Math.random() < 0.01) {
-        animal.userData.velocity.x = (Math.random() - 0.5) * 0.05;
-        animal.userData.velocity.z = (Math.random() - 0.5) * 0.05;
-    }
+        // Change direction
+        if (Math.random() < 0.01) {
+            animal.userData.velocity.x = (Math.random() - 0.5) * 0.05;
+            animal.userData.velocity.z = (Math.random() - 0.5) * 0.05;
+        }
 
-    if (Math.abs(animal.position.x) > 500 || Math.abs(animal.position.z) > 500) {
-    animal.userData.velocity.x *= -1; // bounce back
-    animal.userData.velocity.z *= -1;
-}
-});
+        // Keep inside the terrain
+        if (Math.abs(animal.position.x) > 500 || Math.abs(animal.position.z) > 500) {
+            animal.userData.velocity.x *= -1;
+            animal.userData.velocity.z *= -1;
+        }
+
+        // Face movement direction
+        if (animal.userData.velocity.lengthSq() > 0) {
+            animal.rotation.y = Math.atan2(
+                animal.userData.velocity.x,
+                animal.userData.velocity.z
+            );
+        }
+    });
 
     controls.update();
     renderer.render(scene, camera);
