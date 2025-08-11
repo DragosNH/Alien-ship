@@ -362,6 +362,12 @@ for (let i = 0; i < 1500; i++) {
     );
 
     sheep.rotation.y += (Math.random() + 0) * 2;
+
+    sheep.userData.velocity = new THREE.Vector3(
+    (Math.random() - 0.5) * 0.05, 
+    0,                            
+    (Math.random() - 0.5) * 0.05  
+);
     
     scene.add(sheep);
     animals.push(sheep);
@@ -384,6 +390,20 @@ window.addEventListener('resize', () => {
 // ------ Animate ------
 function animate() {
 
+    animals.forEach(animal => {
+    animal.position.add(animal.userData.velocity);
+
+    // Optional: make them slowly change direction
+    if (Math.random() < 0.01) {
+        animal.userData.velocity.x = (Math.random() - 0.5) * 0.05;
+        animal.userData.velocity.z = (Math.random() - 0.5) * 0.05;
+    }
+
+    if (Math.abs(animal.position.x) > 500 || Math.abs(animal.position.z) > 500) {
+    animal.userData.velocity.x *= -1; // bounce back
+    animal.userData.velocity.z *= -1;
+}
+});
 
     controls.update();
     renderer.render(scene, camera);
