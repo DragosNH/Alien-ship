@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 import { Group } from 'three/examples/jsm/libs/tween.module.js';
 
@@ -11,7 +10,6 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-const controls = new OrbitControls(camera, renderer.domElement);
 
 camera.position.z = 8;
 
@@ -377,8 +375,16 @@ document.body.addEventListener("keydown", (e) => {
     if (key == "ArrowUp") {
         spaceship.position.y += 0.1;
     }
+
     if (key == "ArrowDown") {
-        spaceship.position.y -= 0.1;
+        if(spaceship.position.y > -5){
+            spaceship.position.y -= 0.1;
+        } 
+    }
+
+    if (key == "Numpad8") {
+        spaceship.position.z -= 0.1;
+        console.log("Numpad 8 pressed");
     }
 })
 
@@ -398,11 +404,11 @@ window.addEventListener('resize', () => {
 function animate() {
 
 
-    const worldOffset = new THREE.Vector3(2, 4, 8); // fixed in world axes
+    const worldOffset = new THREE.Vector3(2, 4, 8); 
     const targetPos = spaceship.position.clone().add(worldOffset);
 
     camera.position.lerp(targetPos, 0.1);
-    camera.up.set(0, 1, 0);           // ensure no roll
+    camera.up.set(0, 1, 0);
     camera.lookAt(spaceship.position);
 
     spaceship.rotation.y += 0.05;
@@ -433,7 +439,6 @@ function animate() {
         }
     });
 
-    controls.update();
     renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);
