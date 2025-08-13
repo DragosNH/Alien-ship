@@ -387,6 +387,10 @@ document.body.addEventListener("keydown", (e) => {
     if (key == "z" || key == "w") {
         spaceship.position.z -= 0.3;
     }
+
+    if (key == "s") {
+        spaceship.position.z += 0.3;
+    }
 })
 
 
