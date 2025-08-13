@@ -373,11 +373,13 @@ for (let i = 0; i < 1500; i++) {
 document.body.addEventListener("keydown", (e) => {
     const key = e.key;
     if (key == "ArrowUp") {
-        spaceship.position.y += 0.1;
+        if(spaceship.position.y < 10){
+            spaceship.position.y += 0.1;
+        }
     }
 
     if (key == "ArrowDown") {
-        if(spaceship.position.y > -5){
+        if(spaceship.position.y > -6){
             spaceship.position.y -= 0.1;
         } 
     }
