@@ -68,10 +68,6 @@ lightbulbsGlow.add(pointLightThreeTop);
 lightbulbsGlow.add(pointLightFourBottom);
 lightbulbsGlow.add(pointLightFourTop);
 
-// scene.add(lightbulbsGlow);
-
-
-
 const loader = new EXRLoader();
 loader.load('textures/puresky.exr', function (texture) {
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
