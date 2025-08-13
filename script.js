@@ -68,7 +68,7 @@ lightbulbsGlow.add(pointLightThreeTop);
 lightbulbsGlow.add(pointLightFourBottom);
 lightbulbsGlow.add(pointLightFourTop);
 
-scene.add(lightbulbsGlow);
+// scene.add(lightbulbsGlow);
 
 
 
@@ -207,6 +207,7 @@ spaceship.add(superiourPlate);
 spaceship.add(middlePlate);
 spaceship.add(inferiourPlate);
 spaceship.add(lightbulbs);
+spaceship.add(lightbulbsGlow);
 
 
 // Spaceship added to the scene
@@ -373,7 +374,17 @@ for (let i = 0; i < 1500; i++) {
     animals.push(sheep);
 }
 
+// ------ Spacehip Controls ------
 
+document.body.addEventListener("keydown", (e) =>{
+    const key = e.key;
+    if (key == "ArrowUp"){
+        spaceship.position.y += 0.1;
+    }
+    if(key == "ArrowDown"){
+        spaceship.position.y -= 0.1;
+    }
+})
 
 
 // ------ Responsive page ------
