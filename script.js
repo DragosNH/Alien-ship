@@ -384,9 +384,8 @@ document.body.addEventListener("keydown", (e) => {
         } 
     }
 
-    if (key == "Numpad8") {
-        spaceship.position.z -= 0.1;
-        console.log("Numpad 8 pressed");
+    if (key == "z" || key == "w") {
+        spaceship.position.z -= 0.3;
     }
 })
 
