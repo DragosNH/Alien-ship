@@ -83,7 +83,7 @@ loader.load('textures/puresky.exr', function (texture) {
     texture.dispose();
     pmremGenerator.dispose();
 
-    render();
+    renderer;
 });
 
 
@@ -372,12 +372,12 @@ for (let i = 0; i < 1500; i++) {
 
 // ------ Spacehip Controls ------
 
-document.body.addEventListener("keydown", (e) =>{
+document.body.addEventListener("keydown", (e) => {
     const key = e.key;
-    if (key == "ArrowUp"){
+    if (key == "ArrowUp") {
         spaceship.position.y += 0.1;
     }
-    if(key == "ArrowDown"){
+    if (key == "ArrowDown") {
         spaceship.position.y -= 0.1;
     }
 })
@@ -397,7 +397,16 @@ window.addEventListener('resize', () => {
 // ------ Animate ------
 function animate() {
 
+
+    const worldOffset = new THREE.Vector3(2, 4, 8); // fixed in world axes
+    const targetPos = spaceship.position.clone().add(worldOffset);
+
+    camera.position.lerp(targetPos, 0.1);
+    camera.up.set(0, 1, 0);           // ensure no roll
+    camera.lookAt(spaceship.position);
+
     spaceship.rotation.y += 0.05;
+
 
     animals.forEach(animal => {
         // Movement
