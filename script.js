@@ -379,7 +379,7 @@ document.body.addEventListener("keydown", (e) => {
     }
 
     if (key == "ArrowDown") {
-        if(spaceship.position.y > -6){
+        if(spaceship.position.y > -4){
             spaceship.position.y -= 0.1;
         } 
     }
