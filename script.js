@@ -397,6 +397,8 @@ window.addEventListener('resize', () => {
 // ------ Animate ------
 function animate() {
 
+    spaceship.rotation.y += 0.05;
+
     animals.forEach(animal => {
         // Movement
         animal.position.add(animal.userData.velocity);
